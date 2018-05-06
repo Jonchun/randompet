@@ -7,8 +7,8 @@ from randompet.model.dog import Dog, DogSchema
 @app.route('/dog', methods=["GET"])
 def get_dog():
     dog_schema = DogSchema()
-    all_dogs = Dog.query.order_by(func.random()).first()
-    return dog_schema.jsonify(all_dogs)
+    dog = Dog.query.order_by(func.random()).first()
+    return dog_schema.jsonify(dog)
 
 @app.route('/dog', methods=["POST"])
 def create_dog():
